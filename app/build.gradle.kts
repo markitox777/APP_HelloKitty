@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.hellokitty"
+    namespace = "com.example.hellokitty20"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.hellokitty"
+        applicationId = "com.example.hellokitty20"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

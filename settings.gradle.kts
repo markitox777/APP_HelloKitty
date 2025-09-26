@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "HelloKitty"
+rootProject.name = "HelloKitty2.0"
 include(":app")
  
