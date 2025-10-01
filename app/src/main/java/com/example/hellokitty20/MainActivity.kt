@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.hellokitty20.ui.theme.HelloKitty20Theme
 import com.example.hellokitty20.ui.theme.InicioScreen
+import com.example.hellokitty20.ui.theme.InicioSesion
+import com.example.hellokitty20.ui.theme.PerfilConFotoUI
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,16 +22,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HelloKitty20Theme {
-                InicioScreen()
+                InicioSesion()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(nombre: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "Holaa!! $nombre!",
         modifier = modifier
     )
 }
