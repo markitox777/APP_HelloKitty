@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "482082255065",
+    "project_id": "hellokitty-app",
+    "storage_bucket": "hellokitty-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482082255065:android:c93e29b8d747a20975cec8",
+        "android_client_info": {
+          "package_name": "com.example.hellokitty20"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnBglO0r2GAxeiHoCA93YsqdBv8VTo6hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

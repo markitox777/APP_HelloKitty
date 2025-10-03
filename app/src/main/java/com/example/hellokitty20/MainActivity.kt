@@ -4,43 +4,26 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.hellokitty20.ui.theme.Navegacion
 import com.example.hellokitty20.ui.theme.HelloKitty20Theme
-import com.example.hellokitty20.ui.theme.InicioScreen
-import com.example.hellokitty20.ui.theme.InicioSesion
-import com.example.hellokitty20.ui.theme.PerfilConFotoUI
+import com.google.firebase.FirebaseApp
+
+
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        FirebaseApp.initializeApp(this)
         setContent {
             HelloKitty20Theme {
-                InicioSesion()
+                Navegacion()
             }
         }
     }
 }
 
-@Composable
-fun Greeting(nombre: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Holaa!! $nombre!",
-        modifier = modifier
-    )
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    HelloKitty20Theme {
-        Greeting("Android")
-    }
-}
