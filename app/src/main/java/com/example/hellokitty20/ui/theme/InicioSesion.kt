@@ -8,6 +8,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,39 +16,53 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import org.w3c.dom.Text
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun InicioSesion (){
-
 
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var showDialog by remember { mutableStateOf(false) }
 
-
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement= Arrangement.Center,
-        horizontalAlignment= Alignment.CenterHorizontally
-
-    )   {
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
         Text(text="Nombre")
-        //input 1
+        //input 1 - CORREGIDO
         OutlinedTextField(
             value = username,
             onValueChange = { nuevoTexto ->
                 username = nuevoTexto
-            }, label = { Text("Introduzca su nombre")} //Aqui hacemos un texto dentro del input para que describir lo que debe poner
+            },
+            label = { Text("Introduzca su nombre") },
+            // ----- INICIO DE LA CORRECCIÓN -----
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.White,    // Color de fondo cuando está seleccionado
+                unfocusedContainerColor = Color.Red,  // Color de fondo cuando no está seleccionado
+                disabledContainerColor = Color.Green   // Color de fondo si estuviera deshabilitado
+            )
+            // ----- FIN DE LA CORRECCIÓN -----
         )
+
         Text(text="Contraseña")
-        //input 2
+        //input 2 - CORREGIDO
         OutlinedTextField(
             value = password,
             onValueChange = { nuevoTexto ->
                 password = nuevoTexto
-            }, label = {Text("Introduzca una contraseña")}
+            },
+            label = { Text("Introduzca una contraseña") },
+            // ----- INICIO DE LA CORRECCIÓN -----
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.White,
+                unfocusedContainerColor = Color.Red,
+                disabledContainerColor = Color.Green
+            )
+            // ----- FIN DE LA CORRECCIÓN -----
         )
 
         Button(onClick = {
@@ -55,16 +70,13 @@ fun InicioSesion (){
         }) {
             Text(text = " Enviar ")
         }
-
     }
-
 
     if (showDialog){
         AlertDialog(
-            onDismissRequest = { },
-            title = {Text("Se agrego Correctamente")},
-            text= { Text("Gracias $username, " +
-                    "su contraseña es: $password")},
+            onDismissRequest = { /* No hacer nada para forzar el clic en el botón */ },
+            title = { Text("Se agregó Correctamente") },
+            text = { Text("Gracias $username, su contraseña es: $password") },
             confirmButton = {
                 TextButton(onClick = {
                     showDialog = false
@@ -74,5 +86,4 @@ fun InicioSesion (){
             }
         )
     }
-
 }
