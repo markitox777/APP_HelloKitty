@@ -28,18 +28,15 @@ import androidx.navigation.compose.rememberNavController
 import com.example.hellokitty20.R
 
 
-
-
-
 @Composable
 fun Navegacion() {
     val navController = rememberNavController()
     NavHost(navController, startDestination = "pagina1") {
         composable("Pagina1") { Pagina1(navController) }
         composable("Pagina2") { Pagina2(navController) }
-        composable("Login") {Login(navController)}
+        }
     }
-}
+
 @Composable
 fun Pagina1(navController: NavController) {
     Box(
@@ -47,7 +44,7 @@ fun Pagina1(navController: NavController) {
     ) {
         Image(
             painter = painterResource(id = R.drawable.imagenlogin),
-            contentDescription = "Imagen de bienvenida",
+            contentDescription = "Imagen de un gato",
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
         )
@@ -67,12 +64,11 @@ fun Pagina1(navController: NavController) {
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.White
             )
-            ) {
+        ) {
             Text(text = "Sigueme!!", color = Color.Red)
         }
     }
 }
-
 @Composable
 fun Pagina2(navController: NavController) {
     HelloKitty20Theme {
@@ -94,7 +90,7 @@ fun Pagina2(navController: NavController) {
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(text = "Inicia sesión", color = Color.White)
+                Text(text = "Registremonos", color = Color.White)
                 Text(text = "Para que podamos jugar juntos!!", color = Color.White)
                 Spacer(modifier = Modifier.height(48.dp))
                 InicioSesion()

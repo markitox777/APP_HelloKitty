@@ -1,4 +1,4 @@
-package com.example.hellokitty20.ui.theme
+package com.example.hellokitty20.ui.theme/*package com.example.hellokitty20.ui.theme
 
 import android.R.attr.onClick
 import androidx.compose.foundation.Image
@@ -177,3 +177,4 @@ fun Login(navController: NavController) {
 
 
 
+*/
