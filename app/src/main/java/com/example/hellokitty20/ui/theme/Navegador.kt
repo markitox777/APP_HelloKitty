@@ -41,6 +41,39 @@ fun Navegacion() {
     }
 }
 @Composable
+fun Pagina1(navController: NavController) {
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.imagenlogin),
+            contentDescription = "Imagen de bienvenida",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(48.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "Hola!!", color = Color.White)
+            Text(text = "Bienvenido a Hello Kitty", color = Color.White)
+        }
+        Button(
+            onClick = { navController.navigate("pagina2")},
+            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.White
+            )
+            ) {
+            Text(text = "Sigueme!!", color = Color.Red)
+        }
+    }
+}
+
+@Composable
 fun Pagina2(navController: NavController) {
     HelloKitty20Theme {
         Box(modifier = Modifier.fillMaxSize()) {
@@ -67,7 +100,7 @@ fun Pagina2(navController: NavController) {
                 InicioSesion()
             }
             Button(
-                onClick = { navController.navigate("Login")},
+                onClick = { navController.navigate("pagina1")},
                 modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.White
@@ -78,37 +111,3 @@ fun Pagina2(navController: NavController) {
         }
     }
 }
-
-@Composable
-fun Pagina1(navController: NavController) {
-    Box(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.imagenlogin),
-            contentDescription = "Imagen de bienvenida",
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
-        )
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(48.dp),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(text = "Hola!!", color = Color.White)
-            Text(text = "Bienvenido a Hello Kitty", color = Color.White)
-        }
-        Button(
-            onClick = { navController.navigate("Login")},
-            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.White
-            )
-            ) {
-            Text(text = "Sigueme!!", color = Color.Red)
-        }
-    }
-}
-
