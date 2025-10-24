@@ -3,10 +3,13 @@ package com.example.hellokitty20 // Asegúrate que sea tu paquete
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -41,7 +44,7 @@ fun SelectCharacterScreen(navController: NavController) {
 
             // Botón para Kitty
             Image(
-                painter = painterResource(id = R.drawable.kitty_icono),
+                painter = painterResource(id = R.drawable.kitty_select2),
                 contentDescription = "Elegir Kitty",
                 modifier = Modifier
                     .size(150.dp)
@@ -55,7 +58,7 @@ fun SelectCharacterScreen(navController: NavController) {
 
             // Botón para Keroppi
             Image(
-                painter = painterResource(id = R.drawable.keroppi_icono),
+                painter = painterResource(id = R.drawable.keroppi_select),
                 contentDescription = "Elegir Keroppi",
                 modifier = Modifier
                     .size(150.dp)
@@ -64,6 +67,15 @@ fun SelectCharacterScreen(navController: NavController) {
                         navController.navigate("game/keroppi")
                     }
             )
+        }
+        Button(
+            onClick = { navController.navigate("pagina1")},
+            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.White
+            )
+        ) {
+            Text(text = "Volver al inicio!!", color = Color.Red)
         }
     }
 }
