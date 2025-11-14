@@ -28,7 +28,7 @@ fun MainGameScreen(navController: NavController, personaje: String?) {
 
     val context = LocalContext.current
     val imageLoader = ImageLoader.Builder(context)
-        // ... (código del imageLoader sin cambios) ...
+
         .components {
             if (SDK_INT >= 28) {
                 add(ImageDecoderDecoder.Factory())
