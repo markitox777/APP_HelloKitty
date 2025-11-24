@@ -40,6 +40,7 @@ fun Navegacion() {
         // Tus rutas originales
         composable("Pagina1") { Pagina1(navController) }
         composable("Pagina2") { Pagina2(navController) }
+        composable("Pagina3") { Pagina3(navController) }
 
 
         // --- Rutas nuevas para el juego ---
@@ -80,7 +81,7 @@ fun Pagina1(navController: NavController) {
             Text(text = "Bienvenido a Hello Kitty", color = Color.White)
         }
         Button(
-            onClick = { navController.navigate("pagina2")},
+            onClick = { navController.navigate("pagina3")},
             modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.White
@@ -129,5 +130,61 @@ fun Pagina2(navController: NavController) {
                 Text(text = "Volvamos atras!!", color = Color.Red)
             }
         }
+    }
+}
+
+
+@Composable
+fun Pagina3(navController: NavController) {
+    HelloKitty20Theme {
+        Box(modifier = Modifier.fillMaxSize()) {
+
+            Image(
+                painter = painterResource(id = R.drawable.inicio),
+                contentDescription = "Imagen de fondo",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
+            )
+
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+
+                Text(text = "Iniciar Sesión", color = Color.White)
+                Text(text = "Ingresa tus credenciales", color = Color.White)
+                Spacer(modifier = Modifier.height(48.dp))
+
+                // --- LLAMADO A LOGINSCREEN ---
+                LoginScreen(navController = navController)
+
+                Spacer(modifier = Modifier.height(32.dp))
+
+                // --- BOTÓN REGISTRARSE ---
+                Button(
+                    onClick = { navController.navigate("pagina2") },
+                    colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+                ) {
+                    Text("Registrarse", color = Color.Red)
+                }
+            }
+
+            // --- BOTÓN VOLVER ---
+            Button(
+                onClick = { navController.navigate("pagina2") },
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(16.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.White
+                )
+            ) {
+                Text(text = "Registremonos!!", color = Color.Red)
+            }
+        }
+
     }
 }
